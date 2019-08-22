@@ -42,7 +42,8 @@ ROM types:
   aosp90
   aquarios
   carbon
-  crdroid
+  crdroid81
+  crdroid90
   e-pie
   e-oreo
   havoc
@@ -169,10 +170,17 @@ function get_rom_type() {
                 treble_generate="potato"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            crdroid)
+            crdroid81)
                 mainrepo="https://github.com/crdroidandroid/android.git"
                 mainbranch="8.1"
                 localManifestBranch="android-8.1"
+                treble_generate="crdroid"
+                extra_make_options="WITHOUT_CHECK_API=true"
+                ;;
+            crdroid90)
+                mainrepo="https://github.com/crdroidandroid/android.git"
+                mainbranch="9.0"
+                localManifestBranch="android-9.0"
                 treble_generate="crdroid"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
