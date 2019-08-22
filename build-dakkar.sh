@@ -339,13 +339,29 @@ function clone_or_checkout() {
     fi
 }
 
+function clone_or_checkout2() {
+    local dir="$1"
+    local repo="$2"
+
+    if [[ -d "$dir" ]];then
+        (
+            cd "$dir"
+            git fetch
+            git reset --hard
+            git checkout origin/"$localManifestBranch"
+        )
+    else
+        git clone https://github.com/ExpressLuke/"$repo" "$dir" -b "$localManifestBranch"
+    fi
+}
+
 function init_local_manifest() {
     clone_or_checkout .repo/local_manifests treble_manifest
 }
 
 function init_patches() {
     if [[ -n "$treble_generate" ]]; then
-        clone_or_checkout patches treble_patches
+        clone_or_checkout2 patches treble_patches
 
         # We don't want to replace from AOSP since we'll be applying
         # patches by hand
