@@ -46,6 +46,7 @@ ROM types:
   crdroid90
   e-pie
   e-oreo
+  evox
   havoc
   komodo
   lineage151
@@ -53,6 +54,7 @@ ROM types:
   mokee
   pixel81
   pixel90
+  pixel90plus
   potato
   rebellion
   rr
@@ -158,6 +160,20 @@ function get_rom_type() {
                 ;;
             pixel90)
                 mainrepo="https://github.com/PixelExperience/manifest.git"
+                mainbranch="pie"
+                localManifestBranch="android-9.0"
+                treble_generate="pixel"
+                extra_make_options="WITHOUT_CHECK_API=true"
+                ;;
+            pixel90plus)
+                mainrepo="https://github.com/PixelExperience/manifest.git"
+                mainbranch="pie-plus"
+                localManifestBranch="android-9.0"
+                treble_generate="pixel"
+                extra_make_options="WITHOUT_CHECK_API=true"
+                ;;
+            evox)
+                mainrepo="https://github.com/Evolution-X/platform_manifest.git"
                 mainbranch="pie"
                 localManifestBranch="android-9.0"
                 treble_generate="pixel"
