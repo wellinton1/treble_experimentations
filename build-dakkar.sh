@@ -44,6 +44,7 @@ ROM types:
   carbon
   crdroid81
   crdroid90
+  crdroid100
   e-pie
   e-oreo
   evox
@@ -197,6 +198,13 @@ function get_rom_type() {
                 mainrepo="https://github.com/crdroidandroid/android.git"
                 mainbranch="9.0"
                 localManifestBranch="android-9.0"
+                treble_generate="crdroid"
+                extra_make_options="WITHOUT_CHECK_API=true"
+                ;;
+            crdroid100)
+                mainrepo="https://github.com/crdroidandroid/android.git"
+                mainbranch="10.0"
+                localManifestBranch="android-10.0"
                 treble_generate="crdroid"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
