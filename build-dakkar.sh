@@ -52,6 +52,7 @@ ROM types:
   komodo
   lineage151
   lineage160
+  lineage170
   mokee
   pixel81
   pixel90
@@ -142,6 +143,13 @@ function get_rom_type() {
                 mainrepo="https://github.com/LineageOS/android.git"
                 mainbranch="lineage-16.0"
                 localManifestBranch="android-9.0"
+                treble_generate="lineage"
+                extra_make_options="WITHOUT_CHECK_API=true"
+                ;;
+            lineage170)
+                mainrepo="https://github.com/LineageOS/android.git"
+                mainbranch="lineage-17.0"
+                localManifestBranch="android-10.0"
                 treble_generate="lineage"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
