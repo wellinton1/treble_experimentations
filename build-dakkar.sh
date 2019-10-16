@@ -57,6 +57,7 @@ ROM types:
   pixel81
   pixel90
   pixel90plus
+  pixel100
   potato
   rebellion
   rr
@@ -178,6 +179,13 @@ function get_rom_type() {
                 mainrepo="https://github.com/PixelExperience/manifest.git"
                 mainbranch="pie-plus"
                 localManifestBranch="android-9.0"
+                treble_generate="pixel"
+                extra_make_options="WITHOUT_CHECK_API=true"
+                ;;
+            pixel00)
+                mainrepo="https://github.com/Pe-wip/manifest.git"
+                mainbranch="ten"
+                localManifestBranch="android-10.0"
                 treble_generate="pixel"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
