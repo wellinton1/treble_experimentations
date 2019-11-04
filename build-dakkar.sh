@@ -61,7 +61,7 @@ ROM types:
   potato
   rebellion
   rr
-  slim
+  syberia10
 
 Variants are dash-joined combinations of (in order):
 * processor type
@@ -155,9 +155,9 @@ function get_rom_type() {
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
             rr)
-                mainrepo="https://github.com/ResurrectionRemix/platform_manifest.git"
-                mainbranch="oreo"
-                localManifestBranch="android-8.1"
+                mainrepo="https://github.com/RR-ASB/platform_manifest.git"
+                mainbranch="pie"
+                localManifestBranch="android-9.0"
                 treble_generate="rr"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
@@ -172,28 +172,28 @@ function get_rom_type() {
                 mainrepo="https://github.com/PixelExperience/manifest.git"
                 mainbranch="pie"
                 localManifestBranch="android-9.0"
-                treble_generate="pixel"
+                treble_generate="aosp"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
             pixel90plus)
                 mainrepo="https://github.com/PixelExperience/manifest.git"
                 mainbranch="pie-plus"
                 localManifestBranch="android-9.0"
-                treble_generate="pixel"
+                treble_generate="aosp"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            pixel00)
+            pixel100)
                 mainrepo="https://github.com/Pe-wip/manifest.git"
                 mainbranch="ten"
                 localManifestBranch="android-10.0"
-                treble_generate="pixel"
+                treble_generate="aosp"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
             evox)
-                mainrepo="https://github.com/Evolution-X/platform_manifest.git"
-                mainbranch="pie"
-                localManifestBranch="android-9.0"
-                treble_generate="pixel"
+                mainrepo="https://github.com/EvoX-temp/manifest.git"
+                mainbranch="ten"
+                localManifestBranch="android-10.0"
+                treble_generate="aosp"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
             potato)
@@ -214,7 +214,7 @@ function get_rom_type() {
                 mainrepo="https://github.com/crdroidandroid/android.git"
                 mainbranch="9.0"
                 localManifestBranch="android-9.0"
-                treble_generate="crdroid"
+                treble_generate="lineage"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
             crdroid100)
@@ -247,8 +247,8 @@ function get_rom_type() {
                 ;;
             aex)
                 mainrepo="https://github.com/AospExtended/manifest.git"
-                mainbranch="9.x"
-                localManifestBranch="android-9.0"
+                mainbranch="10.x"
+                localManifestBranch="android-10.0"
                 treble_generate="aex"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
@@ -261,8 +261,8 @@ function get_rom_type() {
                 ;;
 	    havoc)
                 mainrepo="https://github.com/Havoc-OS/android_manifest.git"
-                mainbranch="pie"
-                localManifestBranch="android-9.0"
+                mainbranch="ten"
+                localManifestBranch="android-10.0"
                 treble_generate="havoc"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
@@ -287,11 +287,11 @@ function get_rom_type() {
 		treble_generate="aquarios"
 		extra_make_options="WITHOUT_CHECK_API=true"
 		;;
-	   aosmp)
-	   	mainrepo="https://gitlab.com/AOSmP/android_manifest.git"
-		mainbranch="pie"
-		localManifestBranch="android-9.0"
-		treble_generate="aosmp"
+	   evox10)
+	   	mainrepo="https://github.com/EvoX-Temp/manifest.git"
+		mainbranch="ten"
+		localManifestBranch="android-10.0"
+		treble_generate="aosp"
 		extra_make_options="WITHOUT_CHECK_API=true"
 	esac
         shift
@@ -420,8 +420,10 @@ function init_patches() {
             sed -i -E '/external\/exfat/d' .repo/local_manifests/manifest.xml
         fi
 
-        # should I do this? will it interfere with building non-gapps images?
-        # rm -f .repo/local_manifests/opengapps.xml
+	read -p "- Do you want to sync gapps packages? (y/N) " g
+            if [[ $g == *"n"* ]];then
+            rm -f .repo/local_manifests/opengapps.xml
+           fi
     fi
 }
 
