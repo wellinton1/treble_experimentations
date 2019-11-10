@@ -280,11 +280,11 @@ function get_rom_type() {
 		treble_generate="rebellion"
 		extra_make_options="WITHOUT_CHECK_API=true"
 		;;
-	  aquarios)
-	        mainrepo="https://github.com/aquarios/manifest.git"
-		mainbranch="a9"
-		localManifestBranch="android-9.0"
-		treble_generate="aquarios"
+	  du10)
+	        mainrepo="https://github.com/DirtyUnicorns/android_manifest.git"
+		mainbranch="q10x"
+		localManifestBranch="android-10.0"
+		treble_generate="du"
 		extra_make_options="WITHOUT_CHECK_API=true"
 		;;
 	   evox10)
