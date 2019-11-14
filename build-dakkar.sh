@@ -431,6 +431,24 @@ function sync_repo() {
     repo sync -c -j "$jobs" -f --force-sync --no-tag --no-clone-bundle --optimized-fetch --prune
 }
 
+function fix_missings() {
+	if [[ "$localManifestBranch" == *"9"* ]]; then
+		# fix kernel source missing (on pie)
+		sed 's;.*KERNEL_;//&;' -i vendor/*/build/soong/Android.bp 2>/dev/null || true
+		mkdir -p device/sample/etc
+		wget -O apns-full-conf.xml -P device/sample/etc https://github.com/LineageOS/android_vendor_lineage/raw/lineage-16.0/prebuilt/common/etc/apns-conf.xml 2>/dev/null
+		
+	fi
+	if [[ "$localManifestBranch" == *"10"* ]]; then
+		# fix kernel source missing (on Q)
+		sed 's;.*KERNEL_;//&;' -i vendor/*/build/soong/Android.bp 2>/dev/null || true
+		mkdir -p device/sample/etc
+		wget -O apns-full-conf.xml -P device/sample/etc https://github.com/LineageOS/android_vendor_lineage/raw/lineage-17.0/prebuilt/common/etc/apns-conf.xml 2>/dev/null
+		mkdir -p device/generic/common/nfc
+		wget -O libnfc-nci.conf -P device/generic/common/nfc https://github.com/ExpressLuke/treble_experimentations/raw/master/files/libnfc-nci.conf
+	fi
+}
+
 function patch_things() {
     if [[ -n "$treble_generate" ]]; then
         rm -f device/*/sepolicy/common/private/genfs_contexts
@@ -500,6 +518,7 @@ init_patches
 sync_repo
 fi
 patch_things
+fix_missings
 jack_env
 
 . build/envsetup.sh
