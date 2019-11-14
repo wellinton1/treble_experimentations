@@ -404,7 +404,7 @@ function clone_or_checkout2() {
 }
 
 function init_local_manifest() {
-    clone_or_checkout .repo/local_manifests treble_manifest
+    clone_or_checkout2 .repo/local_manifests treble_manifest
 }
 
 function init_patches() {
@@ -423,6 +423,7 @@ function init_patches() {
 	read -p "- Do you want to sync gapps packages? (y/N) " g
             if [[ $g == *"n"* ]];then
             rm -f .repo/local_manifests/opengapps.xml
+			rm -f .repo/local_manifests/pe_gapps.xml
            fi
     fi
 }
@@ -442,8 +443,8 @@ function fix_missings() {
 	if [[ "$localManifestBranch" == *"10"* ]]; then
 		# fix kernel source missing (on Q)
 		sed 's;.*KERNEL_;//&;' -i vendor/*/build/soong/Android.bp 2>/dev/null || true
-		mkdir -p device/sample/etc
-		wget -O apns-full-conf.xml -P device/sample/etc https://github.com/LineageOS/android_vendor_lineage/raw/lineage-17.0/prebuilt/common/etc/apns-conf.xml 2>/dev/null
+		#mkdir -p device/sample/etc
+		#wget -O apns-full-conf.xml -P device/sample/etc https://github.com/LineageOS/android_vendor_lineage/raw/lineage-17.0/prebuilt/common/etc/apns-conf.xml 2>/dev/null
 		mkdir -p device/generic/common/nfc
 		wget -O libnfc-nci.conf -P device/generic/common/nfc https://github.com/ExpressLuke/treble_experimentations/raw/master/files/libnfc-nci.conf
 	fi
