@@ -157,7 +157,7 @@ function get_rom_type() {
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
             pixel100)
-                mainrepo="https://github.com/Pe-wip/manifest.git"
+                mainrepo="https://github.com/PixelExperience/manifest.git"
                 mainbranch="ten"
                 localManifestBranch="android-10.0"
                 treble_generate="aosp"
