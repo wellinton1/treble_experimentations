@@ -18,7 +18,8 @@ elif [[ $(uname -s) = "Linux" ]];then
     jobs=$(nproc)
 fi
 
-if [[ $1 == *"evox"* || *"pixel"* && $2 == *"gapps"* ]]; then
+if [[ $1 == *"evox"* || *"pixel"*  ]]; then
+if [[ $2 == *"gapps"* ]]; then
 echo "GApps on this ROM aren't supported this way, please use the vanilla variant to include gapps"
 else
 if [[ $2 == *"arm64"* ]]; then
