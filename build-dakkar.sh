@@ -400,7 +400,7 @@ function fix_missings() {
 		wget -O apns-full-conf.xml -P device/sample/etc https://github.com/LineageOS/android_vendor_lineage/raw/lineage-17.0/prebuilt/common/etc/apns-conf.xml 2>/dev/null
 		mkdir -p device/generic/common/nfc
 		wget -O libnfc-nci.conf -P device/generic/common/nfc https://github.com/ExpressLuke/treble_experimentations/raw/master/files/libnfc-nci.conf
-		sed -i '/Copies the APN/,/include $(BUILD_PREBUILT)/{/include $(BUILD_PREBUILT)/ s/.*/ /; t; d}' /vendor/*/prebuilt/common/Android.mk 2>/dev/null || true
+		sed -i '/Copies the APN/,/include $(BUILD_PREBUILT)/{/include $(BUILD_PREBUILT)/ s/.*/ /; t; d}' vendor/*/prebuilt/common/Android.mk 2>/dev/null || true
 	fi
 }
 
