@@ -18,15 +18,15 @@ elif [[ $(uname -s) = "Linux" ]];then
     jobs=$(nproc)
 fi
 
-if [[ $1 == *"evox"* || *"pixel"*  ]]; then
-if [[ $2 == *"gapps"* ]]; then
+if [[ $1 == *evox* || $1 == *pixel* ]]; then
+if [[ $2 == *gapps* ]]; then
 echo "GApps on this ROM aren't supported this way, please use the vanilla variant to include gapps"
 exit 1
-elif [[ $2 == *"arm64"* ]]; then
+elif [[ $2 == *arm64* ]]; then
 export TARGET_GAPPS_ARCH=arm64
 echo The ROM you are building is $1
 echo GApps variant has been set to $TARGET_GAPPS_ARCH
-elif [[  $2 != *"arm64"* ]]; then
+elif [[  $2 != *arm64* ]]; then
 export TARGET_GAPPS_ARCH=arm
 echo The ROM you are building is $1
 echo GApps variant has been set to $TARGET_GAPPS_ARCH
@@ -375,7 +375,7 @@ function init_patches() {
             sed -i -E '/external\/exfat/d' .repo/local_manifests/manifest.xml
         fi
 
-        if [[ $1 == *"evox"* || *"pixel"* ]]; then
+        if [[ $1 == *evox* || $1 == *pixel* ]]; then
             echo Removing phh gapps manifests
             rm -rf .repo/local_manifests/opengapps.xml
 	    rm -rf .repo/local_manifests/pe_gapps.xml
