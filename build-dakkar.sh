@@ -21,6 +21,7 @@ fi
 if [[ $1 == *"evox"* || *"pixel"*  ]]; then
 if [[ $2 == *"gapps"* ]]; then
 echo "GApps on this ROM aren't supported this way, please use the vanilla variant to include gapps"
+exit 1
 else
 if [[ $2 == *"arm64"* ]]; then
 export TARGET_GAPPS_ARCH=arm64
@@ -33,7 +34,6 @@ echo The ROM you are building is $1
 echo GApps variant has been set to $TARGET_GAPPS_ARCH
 fi
 fi
-exit 1
 fi
 
 
