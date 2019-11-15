@@ -34,7 +34,9 @@ fi
 fi
 
 
-
+if [[ $2 == *vanilla* ]]; then
+export nogapps=true
+fi
 
 
 ## handle command line arguments
@@ -378,7 +380,7 @@ function init_patches() {
 }
 
 function sync_repo() {
-    if [[ $1 == *evox* || $1 == *pixel* || $2 == *vanilla* ]]; then
+    if [[ $nogapps == "true" ]]; then
       echo Removing phh gapps manifests
       rm -rf .repo/local_manifests/opengapps.xml
       rm -rf .repo/local_manifests/pe_gapps.xml
