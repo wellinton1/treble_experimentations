@@ -202,33 +202,33 @@ function get_rom_type() {
                 treble_generate="aex"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-			havoc9)
+            havoc9)
                 mainrepo="https://github.com/Havoc-OS/android_manifest.git"
                 mainbranch="pie"
                 localManifestBranch="android-9.0"
                 treble_generate="havoc"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-			havoc10)
+            havoc10)
                 mainrepo="https://github.com/Havoc-OS/android_manifest.git"
                 mainbranch="ten"
                 localManifestBranch="android-10.0"
                 treble_generate="havoc"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-			du9)
-				mainrepo="https://github.com/DirtyUnicorns/android_manifest.git"
-				mainbranch="p9x"
-				localManifestBranch="android-9.0"
-				treble_generate="du"
-				extra_make_options="WITHOUT_CHECK_API=true"
-				;;
-			du10)
-				mainrepo="https://github.com/DirtyUnicorns/android_manifest.git"
-				mainbranch="q10x"
-				localManifestBranch="android-10.0"
-				treble_generate="du"
-				extra_make_options="WITHOUT_CHECK_API=true"
+            du9)
+		mainrepo="https://github.com/DirtyUnicorns/android_manifest.git"
+		mainbranch="p9x"
+		localManifestBranch="android-9.0"
+		treble_generate="du"
+		extra_make_options="WITHOUT_CHECK_API=true"
+		;;
+            du10)
+		mainrepo="https://github.com/DirtyUnicorns/android_manifest.git"
+		mainbranch="q10x"
+		localManifestBranch="android-10.0"
+		treble_generate="du"
+		extra_make_options="WITHOUT_CHECK_API=true"
 	esac
         shift
     done
