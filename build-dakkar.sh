@@ -32,6 +32,7 @@ export TARGET_GAPPS_ARCH=arm
 echo The ROM you are building is $1
 echo GApps variant has been set to $TARGET_GAPPS_ARCH
 fi
+fi
 exit 1
 fi
 
