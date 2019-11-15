@@ -369,21 +369,20 @@ function init_patches() {
         # We don't want to replace from AOSP since we'll be applying
         # patches by hand
         rm -f .repo/local_manifests/replace.xml
-
+	
         # Remove exfat entry from local_manifest if it exists in ROM manifest 
         if grep -rqF exfat .repo/manifests || grep -qF exfat .repo/manifest.xml;then
             sed -i -E '/external\/exfat/d' .repo/local_manifests/manifest.xml
-        fi
-
-        if [[ $1 == *evox* || $1 == *pixel* || $2 == *vanilla* ]]; then
-            echo Removing phh gapps manifests
-            rm -rf .repo/local_manifests/opengapps.xml
-	    rm -rf .repo/local_manifests/pe_gapps.xml
         fi
     fi
 }
 
 function sync_repo() {
+    if [[ $1 == *evox* || $1 == *pixel* || $2 == *vanilla* ]]; then
+      echo Removing phh gapps manifests
+      rm -rf .repo/local_manifests/opengapps.xml
+      rm -rf .repo/local_manifests/pe_gapps.xml
+    fi
     repo sync -c -j "$jobs" -f --force-sync --no-tag --no-clone-bundle --optimized-fetch --prune
 }
 
