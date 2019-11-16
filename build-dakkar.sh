@@ -394,18 +394,19 @@ function fix_missings() {
 		sed 's;.*KERNEL_;//&;' -i vendor/*/build/soong/Android.bp 2>/dev/null || true
 		mkdir -p device/sample/etc
 		cd device/sample/etc/
-		wget https://github.com/LineageOS/android_vendor_lineage/raw/lineage-16.0/prebuilt/common/etc/apns-conf.xml 2>/dev/null
+		wget -O apns-full-conf.xml https://github.com/LineageOS/android_vendor_lineage/raw/lineage-16.0/prebuilt/common/etc/apns-conf.xml 2>/dev/null
 		cd ../../..
-		
 	fi
 	if [[ "$localManifestBranch" == *"10"* ]]; then
 		# fix kernel source missing (on Q)
 		sed 's;.*KERNEL_;//&;' -i vendor/*/build/soong/Android.bp 2>/dev/null || true
 		mkdir -p device/sample/etc
-		wget -O apns-full-conf.xml -P device/sample/etc https://github.com/LineageOS/android_vendor_lineage/raw/lineage-17.0/prebuilt/common/etc/apns-conf.xml 2>/dev/null
+		cd device/sample/etc
+		wget -O apns-full-conf.xml https://github.com/LineageOS/android_vendor_lineage/raw/lineage-17.0/prebuilt/common/etc/apns-conf.xml 2>/dev/null
+		cd ../../..
 		mkdir -p device/generic/common/nfc
 		cd device/generic/common/nfc
-		wget https://github.com/ExpressLuke/treble_experimentations/raw/master/files/libnfc-nci.conf
+		wget -O libnfc-nci.conf https://github.com/ExpressLuke/treble_experimentations/raw/master/files/libnfc-nci.conf
 		cd ../../../..
 		sed -i '/Copies the APN/,/include $(BUILD_PREBUILT)/{/include $(BUILD_PREBUILT)/ s/.*/ /; t; d}' vendor/*/prebuilt/common/Android.mk 2>/dev/null || true
 	fi
