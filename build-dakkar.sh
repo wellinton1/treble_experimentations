@@ -75,6 +75,8 @@ ROM types:
   havoc10
   du9
   du10
+  aosip9
+  aosip10
 
 Variants are dash-joined combinations of (in order):
 * processor type
@@ -250,6 +252,20 @@ function get_rom_type() {
 		localManifestBranch="android-10.0"
 		treble_generate="du"
 		extra_make_options="WITHOUT_CHECK_API=true"
+                ;;
+            aosip9)
+                mainrepo="https://github.com/AOSiP/platform_manifest.git"
+                mainbranch="pie"
+                localManifestBranch="android-10.0"
+                treble_generate="aosip"
+                extra_make_options="WITHOUT_CHECK_API=true"
+                ;;
+            aosip10)
+                mainrepo="https://github.com/AOSiP/platform_manifest.git"
+                mainbranch="ten"
+                localManifestBranch="android-10.0"
+                treble_generate="aosip"
+                extra_make_options="WITHOUT_CHECK_API=true"
 	esac
         shift
     done
