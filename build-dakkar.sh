@@ -372,7 +372,7 @@ function clone_or_checkout2() {
             git checkout origin/"$localManifestBranch"
         )
     else
-        git clone https://github.com/ExpressLuke/"$repo" "$dir" -b "$localManifestBranch"
+        git clone https://github.com/bluedogerino/"$repo" "$dir" -b "$localManifestBranch"
     fi
 }
 
