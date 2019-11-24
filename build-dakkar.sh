@@ -406,6 +406,7 @@ function sync_repo() {
 
 function fix_missings() {
 	if [[ "$localManifestBranch" == *"9"* ]]; then
+	        rm -rf vendor/*/packages/overlays/NoCutout*
 		# fix kernel source missing (on pie)
 		sed 's;.*KERNEL_;//&;' -i vendor/*/build/soong/Android.bp 2>/dev/null || true
 		mkdir -p device/sample/etc
@@ -414,6 +415,7 @@ function fix_missings() {
 		cd ../../..
 	fi
 	if [[ "$localManifestBranch" == *"10"* ]]; then
+	        rm -rf vendor/*/packages/overlays/NoCutout*
 		# fix kernel source missing (on Q)
 		sed 's;.*KERNEL_;//&;' -i vendor/*/build/soong/Android.bp 2>/dev/null || true
 		mkdir -p device/sample/etc
