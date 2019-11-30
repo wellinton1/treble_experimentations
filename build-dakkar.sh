@@ -256,7 +256,7 @@ function get_rom_type() {
             aosip9)
                 mainrepo="https://github.com/AOSiP/platform_manifest.git"
                 mainbranch="pie"
-                localManifestBranch="android-10.0"
+                localManifestBranch="android-9.0"
                 treble_generate="aosip"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
