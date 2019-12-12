@@ -75,6 +75,8 @@ ROM types:
   havoc10
   du9
   du10
+  omni9
+  omni10
   aosip9
   aosip10
 
@@ -249,6 +251,20 @@ function get_rom_type() {
             du10)
 		mainrepo="https://github.com/DirtyUnicorns/android_manifest.git"
 		mainbranch="q10x"
+		localManifestBranch="android-10.0"
+		treble_generate="du"
+		extra_make_options="WITHOUT_CHECK_API=true"
+                ;;
+            omni9)
+		mainrepo="https://github.com/omnirom/android.git"
+		mainbranch="android-9.0"
+		localManifestBranch="android-9.0"
+		treble_generate="omni"
+		extra_make_options="WITHOUT_CHECK_API=true"
+		;;
+            omni10)
+		mainrepo="https://github.com/omnirom/android.git"
+		mainbranch="android-10"
 		localManifestBranch="android-10.0"
 		treble_generate="du"
 		extra_make_options="WITHOUT_CHECK_API=true"
