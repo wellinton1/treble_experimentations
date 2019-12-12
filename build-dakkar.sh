@@ -263,7 +263,7 @@ function get_rom_type() {
 		extra_make_options="WITHOUT_CHECK_API=true"
 		;;
             omni10)
-		mainrepo="https://github.com/omnirom/android.git"
+		mainrepo="https://github.com/griffin-manifests/android"
 		mainbranch="android-10"
 		localManifestBranch="android-10.0"
 		treble_generate="du"
