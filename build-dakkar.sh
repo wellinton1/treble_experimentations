@@ -81,7 +81,7 @@ ROM types:
   aosip10
   aicp9
   pixeldust9
-  
+
 
 Variants are dash-joined combinations of (in order):
 * processor type
@@ -245,32 +245,32 @@ function get_rom_type() {
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
              du9)
-		        mainrepo="https://github.com/DirtyUnicorns/android_manifest.git"
-		        mainbranch="p9x"
-		        localManifestBranch="android-9.0"
-		        treble_generate="du"
-		        extra_make_options="WITHOUT_CHECK_API=true"
-		        ;;
+	        mainrepo="https://github.com/DirtyUnicorns/android_manifest.git"
+	        mainbranch="p9x"
+	        localManifestBranch="android-9.0"
+	        treble_generate="du"
+	        extra_make_options="WITHOUT_CHECK_API=true"
+	        ;;
             du10)
-		        mainrepo="https://github.com/DirtyUnicorns/android_manifest.git"
-		        mainbranch="q10x"
-		        localManifestBranch="android-10.0"
-		        treble_generate="du"
-		        extra_make_options="WITHOUT_CHECK_API=true"
+	        mainrepo="https://github.com/DirtyUnicorns/android_manifest.git"
+	        mainbranch="q10x"
+	        localManifestBranch="android-10.0"
+	        treble_generate="du"
+	        extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
            omni9)
-		        mainrepo="https://github.com/omnirom/android.git"
-		        mainbranch="android-9.0"
-		        localManifestBranch="android-9.0"
-		        treble_generate="omni"
-		        extra_make_options="WITHOUT_CHECK_API=true"
+	        mainrepo="https://github.com/omnirom/android.git"
+	        mainbranch="android-9.0"
+	        localManifestBranch="android-9.0"
+	        treble_generate="omni"
+	        extra_make_options="WITHOUT_CHECK_API=true"
 		        ;;
           omni10)
-		        mainrepo="https://github.com/griffin-manifests/android"
-		        mainbranch="android-10"
-		        localManifestBranch="android-10.0"
-		        treble_generate="du"
-		        extra_make_options="WITHOUT_CHECK_API=true"
+	        mainrepo="https://github.com/griffin-manifests/android"
+	        mainbranch="android-10"
+	        localManifestBranch="android-10.0"
+	        treble_generate="du"
+	        extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
           aosip9)
                 mainrepo="https://github.com/AOSiP/platform_manifest.git"
@@ -299,7 +299,7 @@ function get_rom_type() {
                 localManifestBranch="android-9.0"
                 treble_generate="pixel"
                 extra_make_options="WITHOUT_CHECK_API=true"
-								
+
 	esac
         shift
     done
