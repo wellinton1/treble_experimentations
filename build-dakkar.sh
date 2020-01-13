@@ -79,6 +79,9 @@ ROM types:
   omni10
   aosip9
   aosip10
+  aicp9
+  pixeldust9
+  
 
 Variants are dash-joined combinations of (in order):
 * processor type
@@ -108,35 +111,35 @@ EOF
 function get_rom_type() {
     while [[ $# -gt 0 ]]; do
         case "$1" in
-            carbon7)
+          carbon7)
                 mainrepo="https://github.com/CarbonROM/android.git"
                 mainbranch="cr-7.0"
                 localManifestBranch="android-9.0"
                 treble_generate="carbon"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            carbon8)
+          carbon8)
                 mainrepo="https://github.com/CarbonROM/android.git"
                 mainbranch="cr-8.0"
                 localManifestBranch="android-10.0"
                 treble_generate="carbon"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            lineage160)
+         lineage160)
                 mainrepo="https://github.com/LineageOS/android.git"
                 mainbranch="lineage-16.0"
                 localManifestBranch="android-9.0"
                 treble_generate="lineage"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            lineage170)
+         lineage170)
                 mainrepo="https://github.com/LineageOS/android.git"
                 mainbranch="lineage-17.0"
                 localManifestBranch="android-10.0"
                 treble_generate="lineage"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            rr7)
+             rr7)
                 mainrepo="https://github.com/RR-ASB/platform_manifest.git"
                 mainbranch="pie"
                 localManifestBranch="android-9.0"
@@ -150,63 +153,63 @@ function get_rom_type() {
                 treble_generate="rr"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            pixel90)
+         pixel90)
                 mainrepo="https://github.com/PixelExperience/manifest.git"
                 mainbranch="pie"
                 localManifestBranch="android-9.0"
                 treble_generate="aosp"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            pixel90plus)
+        pixel90plus)
                 mainrepo="https://github.com/PixelExperience/manifest.git"
                 mainbranch="pie-plus"
                 localManifestBranch="android-9.0"
                 treble_generate="aosp"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            pixel100)
+        pixel100)
                 mainrepo="https://github.com/PixelExperience/manifest.git"
                 mainbranch="ten"
                 localManifestBranch="android-10.0"
                 treble_generate="aosp"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            evox2)
+           evox2)
                 mainrepo="https://github.com/Evolution-X-ASB/platform_manifest.git"
                 mainbranch="pie"
                 localManifestBranch="android-9.0"
                 treble_generate="aosp"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            evox3)
+           evox3)
                 mainrepo="https://github.com/EvoX-temp/manifest.git"
                 mainbranch="ten"
                 localManifestBranch="android-10.0"
                 treble_generate="aosp"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            potato9)
+         potato9)
                 mainrepo="https://github.com/PotatoProject/manifest.git"
                 mainbranch="baked-release"
                 localManifestBranch="android-9.0"
                 treble_generate="potato"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            potato10)
+        potato10)
                 mainrepo="https://github.com/PotatoProject/manifest.git"
                 mainbranch="croquette-release"
                 localManifestBranch="android-10.0"
                 treble_generate="potato"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            crdroid90)
+       crdroid90)
                 mainrepo="https://github.com/crdroidandroid/android.git"
                 mainbranch="9.0"
                 localManifestBranch="android-9.0"
                 treble_generate="lineage"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            crdroid100)
+      crdroid100)
                 mainrepo="https://github.com/crdroidandroid/android.git"
                 mainbranch="10.0"
                 localManifestBranch="android-10.0"
@@ -220,68 +223,83 @@ function get_rom_type() {
                 treble_generate="aex"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            aex10)
+           aex10)
                 mainrepo="https://github.com/AospExtended/manifest.git"
                 mainbranch="10.x"
                 localManifestBranch="android-10.0"
                 treble_generate="aex"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            havoc9)
+          havoc9)
                 mainrepo="https://github.com/Havoc-OS/android_manifest.git"
                 mainbranch="pie"
                 localManifestBranch="android-9.0"
                 treble_generate="havoc"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            havoc10)
+         havoc10)
                 mainrepo="https://github.com/Havoc-OS/android_manifest.git"
                 mainbranch="ten"
                 localManifestBranch="android-10.0"
                 treble_generate="havoc"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            du9)
-		mainrepo="https://github.com/DirtyUnicorns/android_manifest.git"
-		mainbranch="p9x"
-		localManifestBranch="android-9.0"
-		treble_generate="du"
-		extra_make_options="WITHOUT_CHECK_API=true"
-		;;
+             du9)
+		        mainrepo="https://github.com/DirtyUnicorns/android_manifest.git"
+		        mainbranch="p9x"
+		        localManifestBranch="android-9.0"
+		        treble_generate="du"
+		        extra_make_options="WITHOUT_CHECK_API=true"
+		        ;;
             du10)
-		mainrepo="https://github.com/DirtyUnicorns/android_manifest.git"
-		mainbranch="q10x"
-		localManifestBranch="android-10.0"
-		treble_generate="du"
-		extra_make_options="WITHOUT_CHECK_API=true"
+		        mainrepo="https://github.com/DirtyUnicorns/android_manifest.git"
+		        mainbranch="q10x"
+		        localManifestBranch="android-10.0"
+		        treble_generate="du"
+		        extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            omni9)
-		mainrepo="https://github.com/omnirom/android.git"
-		mainbranch="android-9.0"
-		localManifestBranch="android-9.0"
-		treble_generate="omni"
-		extra_make_options="WITHOUT_CHECK_API=true"
-		;;
-            omni10)
-		mainrepo="https://github.com/griffin-manifests/android"
-		mainbranch="android-10"
-		localManifestBranch="android-10.0"
-		treble_generate="du"
-		extra_make_options="WITHOUT_CHECK_API=true"
+           omni9)
+		        mainrepo="https://github.com/omnirom/android.git"
+		        mainbranch="android-9.0"
+		        localManifestBranch="android-9.0"
+		        treble_generate="omni"
+		        extra_make_options="WITHOUT_CHECK_API=true"
+		        ;;
+          omni10)
+		        mainrepo="https://github.com/griffin-manifests/android"
+		        mainbranch="android-10"
+		        localManifestBranch="android-10.0"
+		        treble_generate="du"
+		        extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            aosip9)
+          aosip9)
                 mainrepo="https://github.com/AOSiP/platform_manifest.git"
                 mainbranch="pie"
                 localManifestBranch="android-9.0"
                 treble_generate="aosip"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
-            aosip10)
+         aosip10)
                 mainrepo="https://github.com/AOSiP/platform_manifest.git"
                 mainbranch="ten"
                 localManifestBranch="android-10.0"
                 treble_generate="aosip"
+				extra_make_options="WITHOUT_CHECK_API=true"
+				;;
+           aicp9)
+                mainrepo="https://github.com/AICP/platform_manifest.git"
+                mainbranch="p9.0"
+                localManifestBranch="android-9.0"
+                treble_generate="aicp"
                 extra_make_options="WITHOUT_CHECK_API=true"
+				;;
+	   pixeldust9)
+                mainrepo="https://github.com/pixeldust-project-caf/manifest.git"
+                mainbranch="pie"
+                localManifestBranch="android-9.0"
+                treble_generate="pixel"
+                extra_make_options="WITHOUT_CHECK_API=true"
+								
 	esac
         shift
     done
@@ -388,7 +406,7 @@ function clone_or_checkout2() {
             git checkout origin/"$localManifestBranch"
         )
     else
-        git clone https://github.com/ExpressLuke/"$repo" "$dir" -b "$localManifestBranch"
+        git clone https://github.com/wellinton1/"$repo" "$dir" -b "$localManifestBranch"
     fi
 }
 
