@@ -304,7 +304,7 @@ function get_rom_type() {
                  mainrepo="https://github.com/ViperOS/viper_manifest.git"
                  mainbranch="pie"
                  localManifestBranch="android-9.0"
-                 treble_generate="pixel"
+                 treble_generate="viper"
                  extra_make_options="WITHOUT_CHECK_API=true"
 
 	esac
