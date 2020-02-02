@@ -80,7 +80,6 @@ ROM types:
   aosip9
   aosip10
   aicp9
-  pixeldust9
   viper9
 
 Variants are dash-joined combinations of (in order):
@@ -293,13 +292,6 @@ function get_rom_type() {
                 treble_generate="aicp"
                 extra_make_options="WITHOUT_CHECK_API=true"
 		;;
-       pixeldust9)
-                mainrepo="https://github.com/pixeldust-project-caf/manifest.git"
-                mainbranch="pie"
-                localManifestBranch="android-9.0"
-                treble_generate="pixel"
-                extra_make_options="WITHOUT_CHECK_API=true"
-                ;;
            viper9)
                  mainrepo="https://github.com/ViperOS/viper_manifest.git"
                  mainbranch="pie"
@@ -428,8 +420,8 @@ function init_patches() {
         # We don't want to replace from AOSP since we'll be applying
         # patches by hand
         rm -f .repo/local_manifests/replace.xml
-	
-        # Remove exfat entry from local_manifest if it exists in ROM manifest 
+
+        # Remove exfat entry from local_manifest if it exists in ROM manifest
         if grep -rqF exfat .repo/manifests || grep -qF exfat .repo/manifest.xml;then
             sed -i -E '/external\/exfat/d' .repo/local_manifests/manifest.xml
         fi
