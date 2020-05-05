@@ -283,8 +283,8 @@ function get_rom_type() {
                 mainbranch="ten"
                 localManifestBranch="android-10.0"
                 treble_generate="aosip"
-				extra_make_options="WITHOUT_CHECK_API=true"
-				;;
+		extra_make_options="WITHOUT_CHECK_API=true"
+             	;;
            aicp9)
                 mainrepo="https://github.com/AICP/platform_manifest.git"
                 mainbranch="p9.0"
